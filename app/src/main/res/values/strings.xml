@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Farhaan Apps</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_started">Get Started</string>
+    <string name="home_walkthrough">HOME</string>
+    <string name="text_home_walktrough">Tampilan Home ini menampilkan beberapa kesukaan saya dan deskripsi tentang saya</string>
+    <string name="jadwal_walkthrough">JADWAL</string>
+    <string name="text_jadwal_walkthrough">Tampilan Jadwal ini menampilkan agenda kegiatan yang saya lakukan setiap hari</string>
+    <string name="profile_walkthrough">PROFILE</string>
+    <string name="text_profile_walkthrough">Tampilan Profil ini menampilkan deskripsi tentang saya dan juga kontak maupun media sosial yang saya gunakan</string>
+</resources>
