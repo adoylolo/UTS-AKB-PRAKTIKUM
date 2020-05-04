@@ -12,6 +12,15 @@ import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.HomeFragment
 import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.JadwalFragment
 import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.ProfileFragment
 
+/*
+* Tanggal Pengerjaan  : 04-Mei-2020
+* Deskripsi Pekerjaan : Membuat Class MainMenu yang memiliki TapBarMenu yang berfungsi untuk menghubungkan
+*                       MainMenu dengan Fragment-Fragment Menu
+* NIM                 : 10117145
+* Nama                : Muhammad Farhaan
+* Kelas               : IF-4
+* */
+
 class MainMenu : AppCompatActivity() {
 
     private val HOME = "Home"

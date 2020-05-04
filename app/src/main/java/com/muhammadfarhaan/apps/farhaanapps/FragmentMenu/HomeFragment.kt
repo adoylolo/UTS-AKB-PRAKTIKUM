@@ -9,6 +9,15 @@ import android.view.ViewGroup
 
 import com.muhammadfarhaan.apps.farhaanapps.R
 
+/*
+* Tanggal Pengerjaan  : 04-Mei-2020
+* Deskripsi Pekerjaan : Membuat Fragment HomeFragment untuk menampilkan halaman HOME dan menampilkan
+*                       deskripsi-deskripsi tentang saya
+* NIM                 : 10117145
+* Nama                : Muhammad Farhaan
+* Kelas               : IF-4
+* */
+
 /**
  * A simple [Fragment] subclass.
  */
