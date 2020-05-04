@@ -26,7 +26,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:paddingStart="20dp"
-        android:paddingTop="150dp"
+        android:paddingTop="170dp"
         android:paddingEnd="20dp"
         android:text="@string/text_profile_walkthrough"
         android:textColor="#000000"

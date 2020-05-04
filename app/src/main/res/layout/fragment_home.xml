@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/putih"
+    tools:context=".FragmentMenu.HomeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#010950">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginTop="170dp">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/bg">
+
+            <TextView
+                android:id="@+id/header_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Home"
+                android:textColor="@color/putih"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/side_menu_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                app:srcCompat="@drawable/ic_side_menu" />
+
+            <ImageView
+                android:id="@+id/notif_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="15dp"
+                app:srcCompat="@drawable/ic_notification" />
+
+        </RelativeLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profil_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/foto2"
+            app:civ_border_color="#ffffff"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.184"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/nama_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:layout_below="@+id/profil_image"
+            android:text="MUHAMMAD FARHAAN"
+            android:textColor="@color/putih"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/nama_home"
+            android:text="UNIKOM"
+            android:textColor="@color/putih"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="255dp">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/bg" />
+
+        <TextView
+            android:id="@+id/umur_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_below="@+id/view"
+            android:text="20 Tahun"
+            android:textColor="#000000"
+            android:textSize="23sp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="5dp"
+            android:layout_height="75dp"
+            android:layout_toRightOf="@+id/umur_home"
+            android:layout_toEndOf="@+id/umur_home"
+            android:layout_below="@+id/view"
+            android:background="@color/bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.231"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/jekel_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@+id/view2"
+            android:layout_toEndOf="@+id/view2"
+            android:layout_below="@+id/view"
+            android:text="Laki-Laki"
+            android:textColor="#000000"
+            android:textSize="23sp" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="5dp"
+            android:layout_height="75dp"
+            android:layout_toRightOf="@+id/jekel_home"
+            android:layout_toEndOf="@+id/jekel_home"
+            android:layout_below="@+id/view"
+            android:background="@color/bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.231"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/lokasi_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@+id/view3"
+            android:layout_toEndOf="@+id/view3"
+            android:layout_below="@+id/view"
+            android:text="Bandung"
+            android:textColor="#000000"
+            android:textSize="23sp" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@+id/umur_home"
+            android:background="@color/bg" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="355dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_interest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Interest"
+                android:textSize="30sp"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
+            android:background="@color/bg"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg">
+
+                <TextView
+                    android:id="@+id/txt_hobby"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="HOBBY"
+                    android:textColor="@color/putih"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/img_hobby"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/txt_hobby"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/logo_game" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_hobby"
+                    android:layout_centerHorizontal="true"
+                    android:text="Bermain Game"
+                    android:textColor="@color/putih"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card2"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_toRightOf="@+id/card1"
+            android:layout_toEndOf="@+id/card1"
+            android:background="@color/bg"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg">
+
+                <TextView
+                    android:id="@+id/txt_makes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="MAKES"
+                    android:textColor="@color/putih"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/img_makes"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/txt_makes"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/logo_makanan" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_makes"
+                    android:layout_centerHorizontal="true"
+                    android:text="Ayam Goreng"
+                    android:textColor="@color/putih"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card3"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_toRightOf="@+id/card2"
+            android:layout_toEndOf="@+id/card2"
+            android:background="@color/bg"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg">
+
+                <TextView
+                    android:id="@+id/txt_mikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="MIKES"
+                    android:textColor="@color/putih"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/img_mikes"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/txt_mikes"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/logo_minuman" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_mikes"
+                    android:layout_centerHorizontal="true"
+                    android:text="Air Mineral"
+                    android:textColor="@color/putih"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card4"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginStart="90dp"
+            android:layout_below="@+id/card1"
+            android:background="@color/bg"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg">
+
+                <TextView
+                    android:id="@+id/txt_kesukaan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="INTEREST"
+                    android:textColor="@color/putih"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/img_kesukaan"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/txt_kesukaan"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/logo_interest" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_kesukaan"
+                    android:layout_centerHorizontal="true"
+                    android:text="Bermain Game"
+                    android:textColor="@color/putih"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card5"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_below="@+id/card1"
+            android:layout_toRightOf="@+id/card4"
+            android:layout_toEndOf="@+id/card4"
+            android:background="@color/bg"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg">
+
+                <TextView
+                    android:id="@+id/txt_cita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="CITA-CITA"
+                    android:textColor="@color/putih"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/img_cita"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/txt_cita"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/logo_cita" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_cita"
+                    android:layout_centerHorizontal="true"
+                    android:text="Orang Sukses"
+                    android:textColor="@color/putih"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</FrameLayout>
