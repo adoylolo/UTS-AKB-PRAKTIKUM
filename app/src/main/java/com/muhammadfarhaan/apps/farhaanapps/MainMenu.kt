@@ -8,9 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.michaldrabik.tapbarmenulib.TapBarMenu
-import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.HomeFragment
-import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.JadwalFragment
-import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.ProfileFragment
+import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.*
 
 /*
 * Tanggal Pengerjaan  : 04-Mei-2020
@@ -30,6 +28,8 @@ class MainMenu : AppCompatActivity() {
     internal lateinit var tapBarMenu: TapBarMenu
     internal lateinit var itemHome: ImageView
     internal lateinit var itemJadwal:ImageView
+    internal lateinit var itemPicture:ImageView
+    internal lateinit var itemMedia:ImageView
     internal lateinit var itemProfile:ImageView
     internal lateinit var txtTitle: TextView
 
@@ -38,9 +38,11 @@ class MainMenu : AppCompatActivity() {
         setContentView(R.layout.activity_main_menu)
 
         tapBarMenu = findViewById(R.id.tapBarMenu)
-        itemJadwal = findViewById(R.id.itemJadwal)
-        itemProfile = findViewById(R.id.itemProfile)
         itemHome = findViewById(R.id.itemHome)
+        itemJadwal = findViewById(R.id.itemJadwal)
+        itemPicture = findViewById(R.id.itemPicture)
+        itemMedia = findViewById(R.id.itemMedia)
+        itemProfile = findViewById(R.id.itemProfile)
 
         itemHome.setOnClickListener{
             val managerHome = getSupportFragmentManager()
@@ -60,6 +62,26 @@ class MainMenu : AppCompatActivity() {
             transactionDaily.replace(R.id.frame_container, jadwalFrag, JadwalFragment::class.java.getSimpleName())
             transactionDaily.addToBackStack(null)
             transactionDaily.commit()
+        }
+
+        itemPicture.setOnClickListener{
+            val managerPicture = getSupportFragmentManager()
+            val transactionHome = managerPicture.beginTransaction()
+            val pictureFrag = PictureFragment()
+            //transactionHome.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_left, R.anim.exit_to_left)
+            transactionHome.replace(R.id.frame_container, pictureFrag, PictureFragment::class.java.getSimpleName())
+            transactionHome.addToBackStack(null)
+            transactionHome.commit()
+        }
+
+        itemMedia.setOnClickListener{
+            val managerMedia = getSupportFragmentManager()
+            val transactionHome = managerMedia.beginTransaction()
+            val mediaFrag = MediaFragment()
+            //transactionHome.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_left, R.anim.exit_to_left)
+            transactionHome.replace(R.id.frame_container, mediaFrag, MediaFragment::class.java.getSimpleName())
+            transactionHome.addToBackStack(null)
+            transactionHome.commit()
         }
 
         itemProfile.setOnClickListener{

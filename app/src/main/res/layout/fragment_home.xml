@@ -43,22 +43,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/side_menu_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                app:srcCompat="@drawable/ic_side_menu" />
-
-            <ImageView
-                android:id="@+id/notif_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="15dp"
-                app:srcCompat="@drawable/ic_notification" />
-
         </RelativeLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
