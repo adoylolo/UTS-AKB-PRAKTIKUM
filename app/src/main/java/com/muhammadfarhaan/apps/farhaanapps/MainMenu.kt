@@ -31,7 +31,6 @@ class MainMenu : AppCompatActivity() {
     internal lateinit var itemPicture:ImageView
     internal lateinit var itemMedia:ImageView
     internal lateinit var itemProfile:ImageView
-    internal lateinit var txtTitle: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,14 +73,9 @@ class MainMenu : AppCompatActivity() {
             transactionHome.commit()
         }
 
-        itemMedia.setOnClickListener{
-            val managerMedia = getSupportFragmentManager()
-            val transactionHome = managerMedia.beginTransaction()
-            val mediaFrag = MediaFragment()
-            //transactionHome.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_left, R.anim.exit_to_left)
-            transactionHome.replace(R.id.frame_container, mediaFrag, MediaFragment::class.java.getSimpleName())
-            transactionHome.addToBackStack(null)
-            transactionHome.commit()
+        itemMedia.setOnClickListener {
+            val intent = Intent(this, MediaFragment::class.java)
+            startActivity(intent)
         }
 
         itemProfile.setOnClickListener{
