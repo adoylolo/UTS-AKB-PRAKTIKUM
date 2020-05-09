@@ -1,5 +1,6 @@
 package com.muhammadfarhaan.apps.farhaanapps
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.michaldrabik.tapbarmenulib.TapBarMenu
 import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.*
+import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.Gallery.PictureActivity
 
 /*
 * Tanggal Pengerjaan  : 04-Mei-2020
@@ -31,6 +33,7 @@ class MainMenu : AppCompatActivity() {
     internal lateinit var itemPicture:ImageView
     internal lateinit var itemMedia:ImageView
     internal lateinit var itemProfile:ImageView
+    val REQUEST_CODE = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +57,7 @@ class MainMenu : AppCompatActivity() {
         }
 
         itemJadwal.setOnClickListener{
-            val managerDaily = getSupportFragmentManager()
+            val managerDaily = supportFragmentManager
             val transactionDaily = managerDaily.beginTransaction()
             val jadwalFrag = JadwalFragment()
             //transactionDaily.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_left, R.anim.exit_to_left)
@@ -63,7 +66,7 @@ class MainMenu : AppCompatActivity() {
             transactionDaily.commit()
         }
 
-        itemPicture.setOnClickListener{
+        /*itemPicture.setOnClickListener{
             val managerPicture = getSupportFragmentManager()
             val transactionHome = managerPicture.beginTransaction()
             val pictureFrag = PictureFragment()
@@ -71,15 +74,22 @@ class MainMenu : AppCompatActivity() {
             transactionHome.replace(R.id.frame_container, pictureFrag, PictureFragment::class.java.getSimpleName())
             transactionHome.addToBackStack(null)
             transactionHome.commit()
+            //openGalleryForImage()
+        }*/
+
+        itemPicture.setOnClickListener {
+            val intent = Intent(this, PictureActivity::class.java)
+            startActivity(intent)
         }
 
         itemMedia.setOnClickListener {
             val intent = Intent(this, MediaFragment::class.java)
             startActivity(intent)
+            //openMusic()
         }
 
         itemProfile.setOnClickListener{
-            val managerProfile = getSupportFragmentManager()
+            val managerProfile = supportFragmentManager
             val transactionProfile = managerProfile.beginTransaction()
             val profileFrag = ProfileFragment()
             //transactionProfile.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
@@ -100,5 +110,26 @@ class MainMenu : AppCompatActivity() {
         transactionHome.commit()
 
         tapBarMenu.setOnClickListener { tapBarMenu.toggle() }
+    }
+
+    private fun openGalleryForImage() {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.type = "image/*"
+        intent.setAction(Intent.ACTION_GET_CONTENT)
+        startActivityForResult(intent, REQUEST_CODE)
+    }
+
+    private fun openMusic() {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.type = "music/*"
+        intent.setAction(Intent.ACTION_GET_CONTENT)
+        startActivityForResult(intent, REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
+            //picture.setImageURI(data?.data) // handle chosen image
+        }
     }
 }

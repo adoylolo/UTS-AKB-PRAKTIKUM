@@ -15,10 +15,6 @@ import com.muhammadfarhaan.apps.farhaanapps.R
 import kotlinx.android.synthetic.main.fragment_picture.*
 import kotlinx.android.synthetic.main.item_detail_picture.*
 
-
-
-
-
 /*
 * Tanggal Pengerjaan  : 07-Mei-2020
 * Deskripsi Pekerjaan : Membuat Fragment untuk menampilkan atribut-atribut dari ModelPicture dan

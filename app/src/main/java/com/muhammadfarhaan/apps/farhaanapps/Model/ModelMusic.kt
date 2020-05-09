@@ -1,4 +1,3 @@
 package com.muhammadfarhaan.apps.farhaanapps.Model
 
-class ModelMusic {
-}
+data class ModelMusic(val id:Long, val title:String)

@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:id="@+id/parent_layout"
+    android:layout_marginLeft="3.5dp"
+    android:layout_marginStart="3.5dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="0dp">
 
     <ImageView
         android:id="@+id/picture"
         android:layout_width="200dp"
         android:layout_height="250dp"
-        app:srcCompat="@drawable/gift" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/namaPicture"

@@ -7,6 +7,8 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.recyclerview.widget.RecyclerView
@@ -31,6 +33,10 @@ class RecyclerPicture (inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_detail_picture, parent, false)) {
 
     fun bind(Picture: ModelPicture, pos: Int, listener: (Int) -> Unit) {
+
+        val name  = Picture.nama
+        val img  = Picture.image
+
         super.itemView
         itemView.setTag(this)
         itemView.apply {

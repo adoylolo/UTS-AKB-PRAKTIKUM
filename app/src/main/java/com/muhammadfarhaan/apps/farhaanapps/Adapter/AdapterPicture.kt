@@ -23,7 +23,8 @@ class AdapterPicture (private val list: List<ModelPicture>, val listener: (Int) 
     }
 
     override fun onBindViewHolder(holder: RecyclerPicture, position: Int) {
-        holder.bind(list[position], position, listener)
+        val gambar: ModelPicture = list[position]
+        holder.bind(gambar, position, listener)
     }
 
     override fun getItemCount(): Int = list.size
