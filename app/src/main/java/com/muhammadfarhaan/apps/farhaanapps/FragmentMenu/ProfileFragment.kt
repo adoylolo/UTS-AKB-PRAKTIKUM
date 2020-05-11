@@ -17,6 +17,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.muhammadfarhaan.apps.farhaanapps.R
 import de.hdodenhof.circleimageview.CircleImageView
 
+/*
+* Tanggal Pengerjaan  : 11-Mei-2020
+* NIM                 : 10117145
+* Nama                : Muhammad Farhaan
+* Kelas               : IF-4
+* */
+
 /**
  * A simple [Fragment] subclass.
  */

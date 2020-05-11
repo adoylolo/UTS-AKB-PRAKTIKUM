@@ -1,3 +1,11 @@
 package com.muhammadfarhaan.apps.farhaanapps.Model
 
-data class ModelMusic(val id:Long, val title:String)
+/*
+* Tanggal Pengerjaan  : 11-Mei-2020
+* NIM                 : 10117145
+* Nama                : Muhammad Farhaan
+* Kelas               : IF-4
+* */
+
+class ModelMusic {
+}

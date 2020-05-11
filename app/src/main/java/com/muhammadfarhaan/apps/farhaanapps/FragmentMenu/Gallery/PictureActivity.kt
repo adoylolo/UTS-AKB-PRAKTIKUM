@@ -12,7 +12,12 @@ import com.muhammadfarhaan.apps.farhaanapps.MainMenu
 import com.muhammadfarhaan.apps.farhaanapps.R
 import java.util.ArrayList
 
-
+/*
+* Tanggal Pengerjaan  : 11-Mei-2020
+* NIM                 : 10117145
+* Nama                : Muhammad Farhaan
+* Kelas               : IF-4
+* */
 
 class PictureActivity : AppCompatActivity() {
 

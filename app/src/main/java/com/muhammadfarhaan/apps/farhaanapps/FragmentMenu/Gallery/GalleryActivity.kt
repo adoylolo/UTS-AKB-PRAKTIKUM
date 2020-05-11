@@ -12,6 +12,13 @@ import com.bumptech.glide.Glide
 import com.muhammadfarhaan.apps.farhaanapps.R
 import kotlinx.android.synthetic.main.fragment_detail_picture.*
 
+/*
+* Tanggal Pengerjaan  : 11-Mei-2020
+* NIM                 : 10117145
+* Nama                : Muhammad Farhaan
+* Kelas               : IF-4
+* */
+
 class GalleryActivity : AppCompatActivity() {
 
     private val TAG = "GalleryActivity"

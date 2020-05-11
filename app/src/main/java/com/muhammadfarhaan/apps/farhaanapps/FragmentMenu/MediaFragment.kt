@@ -16,9 +16,14 @@ import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.FragmentMedia.AdapterMe
 import com.muhammadfarhaan.apps.farhaanapps.R
 import kotlinx.android.synthetic.main.fragment_media.*
 
+/*
+* Tanggal Pengerjaan  : 11-Mei-2020
+* NIM                 : 10117145
+* Nama                : Muhammad Farhaan
+* Kelas               : IF-4
+* */
+
 class MediaFragment : AppCompatActivity() {
-
-
 
     /**
      * The [ViewPager] that will host the section contents.

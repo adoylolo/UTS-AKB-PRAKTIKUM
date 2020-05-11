@@ -9,6 +9,13 @@ import android.view.ViewGroup
 
 import com.muhammadfarhaan.apps.farhaanapps.R
 
+/*
+* Tanggal Pengerjaan  : 11-Mei-2020
+* NIM                 : 10117145
+* Nama                : Muhammad Farhaan
+* Kelas               : IF-4
+* */
+
 /**
  * A simple [Fragment] subclass.
  */

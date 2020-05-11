@@ -16,6 +16,13 @@ import com.muhammadfarhaan.apps.farhaanapps.R
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.ArrayList
 
+/*
+* Tanggal Pengerjaan  : 11-Mei-2020
+* NIM                 : 10117145
+* Nama                : Muhammad Farhaan
+* Kelas               : IF-4
+* */
+
 class RecyclerViewAdapter(context:Context,
                           imageNames:ArrayList<String>,
                           images:ArrayList<Int>)

@@ -9,6 +9,13 @@ import com.muhammadfarhaan.apps.farhaanapps.FragmentWalkthrough.FirstFragment
 import com.muhammadfarhaan.apps.farhaanapps.FragmentWalkthrough.SecondFragment
 import com.muhammadfarhaan.apps.farhaanapps.FragmentWalkthrough.ThirdFragment
 
+/*
+* Tanggal Pengerjaan  : 11-Mei-2020
+* NIM                 : 10117145
+* Nama                : Muhammad Farhaan
+* Kelas               : IF-4
+* */
+
 class Adapter (fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
     // sebuah list yang menampung objek Fragment
