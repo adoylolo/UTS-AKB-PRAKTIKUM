@@ -1,38 +1,45 @@
 package com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.Gallery
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.muhammadfarhaan.apps.farhaanapps.R
 import kotlinx.android.synthetic.main.fragment_detail_picture.*
-import android.graphics.drawable.ColorDrawable
-
-
 
 class GalleryActivity : AppCompatActivity() {
 
     private val TAG = "GalleryActivity"
+    private var doubleBackToExitPressedOnce = false
+    private var colorValue = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_detail_picture)
         Log.d(TAG, "onCreate: started.")
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        overridePendingTransition(R.anim.animate_diagonal_right_enter,R.anim.noanim)
 
         getIncomingIntent()
 
+        colorValue = ContextCompat.getColor(this,R.color.putih)
+
         fullscreen.setOnClickListener {
-            val colorValue = ContextCompat.getColor(this,R.color.hitam)
-            gallery_bg.setBackgroundColor(colorValue)
-
-            text_fullscreen.visibility = View.INVISIBLE
+            if(colorValue == ContextCompat.getColor(this,R.color.putih)){
+                colorValue = ContextCompat.getColor(this,R.color.hitam)
+                gallery_bg.setBackgroundColor(colorValue)
+                text_fullscreen.visibility = View.INVISIBLE
+            }else if(colorValue == ContextCompat.getColor(this,R.color.hitam)){
+                colorValue = ContextCompat.getColor(this,R.color.putih)
+                gallery_bg.setBackgroundColor(colorValue)
+                text_fullscreen.visibility = View.VISIBLE
+            }
         }
-
     }
 
     private fun getIncomingIntent() {
@@ -59,5 +66,16 @@ class GalleryActivity : AppCompatActivity() {
             .asBitmap()
             .load(Picture)
             .into(image)
+    }
+
+    override fun onBackPressed() {
+        if(colorValue == ContextCompat.getColor(this,R.color.putih)){
+            finish()
+            overridePendingTransition(R.anim.noanim,R.anim.animate_diagonal_right_exit)
+        }else if(colorValue == ContextCompat.getColor(this,R.color.hitam)){
+            colorValue = ContextCompat.getColor(this,R.color.putih)
+            gallery_bg.setBackgroundColor(colorValue)
+            text_fullscreen.visibility = View.VISIBLE
+        }
     }
 }

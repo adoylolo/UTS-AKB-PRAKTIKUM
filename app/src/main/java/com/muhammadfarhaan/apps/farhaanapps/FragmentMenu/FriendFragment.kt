@@ -67,5 +67,4 @@ class FriendFragment : Fragment() {
         fun newInstance(): JadwalFragment = JadwalFragment()
     }
 
-
 }

@@ -1,6 +1,5 @@
 package com.muhammadfarhaan.apps.farhaanapps.FragmentMenu
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muhammadfarhaan.apps.farhaanapps.Adapter.AdapterDetailDaily
 import com.muhammadfarhaan.apps.farhaanapps.Model.ModelJadwal
-import com.muhammadfarhaan.apps.farhaanapps.Model.ModelTeman
 
 import com.muhammadfarhaan.apps.farhaanapps.R
 import kotlinx.android.synthetic.main.fragment_jadwal.*
@@ -29,8 +27,6 @@ import kotlinx.android.synthetic.main.fragment_jadwal.*
  * A simple [Fragment] subclass.
  */
 class JadwalFragment : Fragment() {
-
-    internal lateinit var btn_friend: Button
 
     private val item = listOf(
         ModelJadwal("Sholat Subuh", "Beribadah wajib setiap subuh", "4.45", R.drawable.sholat),
@@ -69,21 +65,6 @@ class JadwalFragment : Fragment() {
             // set the custom adapter to the RecyclerView
             adapter = AdapterDetailDaily(item)
         }
-
-        btn_friend = view.findViewById(R.id.btn_friend)
-
-        btn_friend.setOnClickListener(View.OnClickListener {
-            val dailyFragment = FriendFragment()
-            val fragmentManager = fragmentManager
-            val fragmentTransaction = fragmentManager?.beginTransaction()
-            fragmentTransaction?.replace(
-                R.id.frame_container,
-                dailyFragment,
-                FriendFragment::class.java.getSimpleName()
-            )
-            fragmentTransaction?.addToBackStack(null)
-            fragmentTransaction?.commit()
-        })
     }
 
     companion object {

@@ -6,6 +6,8 @@
         <item name="colorPrimary">#00C2D4</item>
         <item name="colorPrimaryDark">#00C2D4</item>
         <item name="colorAccent">#00C2D4</item>
+
+        <item name="android:windowActivityTransitions">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
@@ -27,6 +28,16 @@ class MediaFragment : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_media)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        val mToolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_media)
+        mToolbar.title = ("Media")
+        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
+
+        mToolbar.setNavigationOnClickListener {
+            finish()
+            overridePendingTransition(R.anim.noanim,R.anim.animate_slide_up_exit)
+        }
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -40,5 +51,15 @@ class MediaFragment : AppCompatActivity() {
 
         mViewPager?.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
         tabLayout.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(mViewPager))
+    }
+
+    override fun onBackPressed() {
+        finish()
+        overridePendingTransition(R.anim.noanim,R.anim.animate_slide_up_exit)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

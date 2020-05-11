@@ -56,6 +56,7 @@ class RecyclerViewAdapter(context:Context,
             intent.putExtra("image", mImages[position])
             intent.putExtra("image_name", mImageNames[position])
             mContext.startActivity(intent)
+
         })
     }
 
