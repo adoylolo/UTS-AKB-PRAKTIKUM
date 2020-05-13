@@ -4,14 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import com.michaldrabik.tapbarmenulib.TapBarMenu
 import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.*
 import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.Gallery.PictureActivity
-import kotlinx.android.synthetic.main.activity_main_menu.*
 
 /*
 * Tanggal Pengerjaan  : 04-Mei-2020
@@ -35,6 +31,9 @@ class MainMenu : AppCompatActivity() {
     internal lateinit var itemMedia:ImageView
     internal lateinit var itemProfile:ImageView
     val REQUEST_CODE = 100
+    val REQ_PICK_PHOTO = 10000
+    val REQ_PICK_AUDIO = 10001
+    val REQ_PICK_VIDEO = 10002
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,21 +66,11 @@ class MainMenu : AppCompatActivity() {
             transactionDaily.commit()
         }
 
-        /*itemPicture.setOnClickListener{
-            val managerPicture = getSupportFragmentManager()
-            val transactionHome = managerPicture.beginTransaction()
-            val pictureFrag = PictureFragment()
-            //transactionHome.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_left, R.anim.exit_to_left)
-            transactionHome.replace(R.id.frame_container, pictureFrag, PictureFragment::class.java.getSimpleName())
-            transactionHome.addToBackStack(null)
-            transactionHome.commit()
-            //openGalleryForImage()
-        }*/
-
         itemPicture.setOnClickListener {
             val intent = Intent(this, PictureActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.animate_slide_up_enter,R.anim.noanim)
+            openGalleryForImage()
         }
 
         itemMedia.setOnClickListener {
@@ -116,23 +105,20 @@ class MainMenu : AppCompatActivity() {
     }
 
     private fun openGalleryForImage() {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.type = "image/*"
-        intent.setAction(Intent.ACTION_GET_CONTENT)
-        startActivityForResult(intent, REQUEST_CODE)
-    }
-
-    private fun openMusic() {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.type = "music/*"
-        intent.setAction(Intent.ACTION_GET_CONTENT)
-        startActivityForResult(intent, REQUEST_CODE)
+        val pictureIntent = Intent(
+            Intent.ACTION_VIEW,
+            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        )
+        this.startActivityForResult(pictureIntent, REQ_PICK_PHOTO)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-            //picture.setImageURI(data?.data) // handle chosen image
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                //the selected audio.
+                val uri = data!!.data
+            }
         }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }
