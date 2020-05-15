@@ -1,22 +1,26 @@
 package com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.FragmentMedia
 
-
-import android.app.Activity
-import android.content.Intent
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 
 import com.muhammadfarhaan.apps.farhaanapps.R
 import kotlinx.android.synthetic.main.fragment_music.*
+import android.content.pm.PackageManager
+import android.database.Cursor
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.FragmentMedia.AdapterMedia.MusicAdapter
+import com.muhammadfarhaan.apps.farhaanapps.Model.ModelMusic
+
 
 /*
-* Tanggal Pengerjaan  : 11-Mei-2020
+* Tanggal Pengerjaan  : 14-Mei-2020
 * NIM                 : 10117145
 * Nama                : Muhammad Farhaan
 * Kelas               : IF-4
@@ -27,8 +31,13 @@ import kotlinx.android.synthetic.main.fragment_music.*
  */
 class MusicFragment : Fragment() {
 
-    internal lateinit var button: Button
+    var MusicModelData:ArrayList<ModelMusic> = ArrayList()
+    var MusicAdapter:MusicAdapter?=null
     val REQ_PICK_AUDIO = 1
+
+    companion object{
+        val PERMISSION_REQUEST_CODE = 12
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,28 +47,43 @@ class MusicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button = view.findViewById(R.id.btn_music)
-
-        button.setOnClickListener {
-            openMusic()
+        val Context = activity!!.applicationContext
+        if(ContextCompat.checkSelfPermission(Context,android.Manifest.permission.READ_EXTERNAL_STORAGE)!=PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(activity!!,
+                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE,android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                PERMISSION_REQUEST_CODE)
+        }else{
+            loadData()
         }
     }
 
-    private fun openMusic() {
-        val musicIntent = Intent(
-            Intent.ACTION_PICK,
-            MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
-        )
-        startActivityForResult(musicIntent, REQ_PICK_AUDIO)
+    fun loadData(){
+        val resolver = activity!!.contentResolver
+        val mContext = activity!!.applicationContext
+        var songCursor: Cursor? = resolver.query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+            null,null,null,null)
+        while (songCursor!=null && songCursor.moveToNext()){
+            var songName = songCursor.getString(songCursor.getColumnIndex(MediaStore.Audio.Media.TITLE))
+            var songDuration = songCursor.getString(songCursor.getColumnIndex(MediaStore.Audio.Media.DURATION))
+            var songPath = songCursor.getString(songCursor.getColumnIndex(MediaStore.Audio.Media.DATA))
+            MusicModelData.add(ModelMusic(songName, songDuration, songPath))
+        }
+        MusicAdapter = MusicAdapter(MusicModelData,mContext)
+        var layoutManager = LinearLayoutManager(mContext)
+        recycler_music.layoutManager = layoutManager
+        recycler_music.adapter = MusicAdapter
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == 1) {
-            if (resultCode == Activity.RESULT_OK) {
-                //the selected audio.
-                val uri = data!!.data
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == PERMISSION_REQUEST_CODE){
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(context,"Permission Granted",Toast.LENGTH_SHORT).show()
+                loadData()
             }
         }
-        super.onActivityResult(requestCode, resultCode, data)
     }
 }

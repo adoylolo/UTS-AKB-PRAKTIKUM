@@ -30,10 +30,7 @@ class MainMenu : AppCompatActivity() {
     internal lateinit var itemPicture:ImageView
     internal lateinit var itemMedia:ImageView
     internal lateinit var itemProfile:ImageView
-    val REQUEST_CODE = 100
     val REQ_PICK_PHOTO = 10000
-    val REQ_PICK_AUDIO = 10001
-    val REQ_PICK_VIDEO = 10002
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +74,6 @@ class MainMenu : AppCompatActivity() {
             val intent = Intent(this, MediaFragment::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.animate_slide_up_enter,R.anim.noanim)
-            //openMusic()
         }
 
         itemProfile.setOnClickListener{

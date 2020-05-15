@@ -1,20 +1,20 @@
 package com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.FragmentMedia
 
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.muhammadfarhaan.apps.farhaanapps.FragmentMenu.FragmentMedia.AdapterMedia.VideoAdapter
+import com.muhammadfarhaan.apps.farhaanapps.Model.ModelVideo
 
 import com.muhammadfarhaan.apps.farhaanapps.R
 
 /*
-* Tanggal Pengerjaan  : 11-Mei-2020
+* Tanggal Pengerjaan  : 14-Mei-2020
 * NIM                 : 10117145
 * Nama                : Muhammad Farhaan
 * Kelas               : IF-4
@@ -25,8 +25,8 @@ import com.muhammadfarhaan.apps.farhaanapps.R
  */
 class VideoFragment : Fragment() {
 
-    internal lateinit var button: Button
-    val REQ_PICK_VIDEO = 1
+    lateinit var recyclervideo:RecyclerView
+    var arrayList:ArrayList<ModelVideo> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,29 +35,23 @@ class VideoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recyclervideo = view.findViewById(R.id.recycler_video)
+        var layoutManager = LinearLayoutManager(context)
+        recyclervideo.layoutManager = layoutManager
+        recyclervideo.setHasFixedSize(true)
 
-        button = view.findViewById(R.id.btn_video)
+        arrayList = ArrayList()
+        var videoList = ModelVideo(" The God of High School Trailer","https://www.youtube.com/embed/oqjwUfprNAk")
+        arrayList.add(videoList)
+        videoList = ModelVideo(" Solo Leveling Anime Trailer","https://www.youtube.com/embed/pXQOwNVFxa8")
+        arrayList.add(videoList)
+        videoList = ModelVideo(" Mushoku Tensei Official Teaser","https://www.youtube.com/embed/1TiBoHQUj3I")
+        arrayList.add(videoList)
+        videoList = ModelVideo(" Ten-Sura Season 2 Official Trailer","https://www.youtube.com/embed/8F1STmoD06o")
+        arrayList.add(videoList)
 
-        button.setOnClickListener {
-            openVideo()
-        }
-    }
-
-    private fun openVideo() {
-        val videoIntent = Intent(
-            Intent.ACTION_VIEW,
-            MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-        )
-        startActivityForResult(videoIntent,REQ_PICK_VIDEO)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == 1) {
-            if (resultCode == Activity.RESULT_OK) {
-                //the selected audio.
-                val uri = data!!.data
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data)
+        val mContext = activity!!.applicationContext
+        val youtubeAdapter = VideoAdapter(arrayList, mContext)
+        recyclervideo.adapter = youtubeAdapter
     }
 }

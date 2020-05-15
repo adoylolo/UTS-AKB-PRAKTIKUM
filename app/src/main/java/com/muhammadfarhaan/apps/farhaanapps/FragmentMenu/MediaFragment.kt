@@ -1,6 +1,7 @@
 package com.muhammadfarhaan.apps.farhaanapps.FragmentMenu
 
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,9 +26,6 @@ import kotlinx.android.synthetic.main.fragment_media.*
 
 class MediaFragment : AppCompatActivity() {
 
-    /**
-     * The [ViewPager] that will host the section contents.
-     */
     private var mViewPager: ViewPager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

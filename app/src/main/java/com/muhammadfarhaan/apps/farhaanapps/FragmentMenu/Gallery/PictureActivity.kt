@@ -52,19 +52,19 @@ class PictureActivity : AppCompatActivity() {
     private fun initImageBitmaps() {
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.")
 
-        mImage.add(R.drawable.gift)
+        mImage.add(R.drawable.foto2)
         mNames.add("Picture 1")
 
-        mImage.add(R.drawable.gift2)
+        mImage.add(R.drawable.ananda)
         mNames.add("Picture 2")
 
-        mImage.add(R.drawable.gift3)
+        mImage.add(R.drawable.ari)
         mNames.add("Picture 3")
 
-        mImage.add(R.drawable.gift4)
+        mImage.add(R.drawable.dimas)
         mNames.add("Picture 4")
 
-        mImage.add(R.drawable.gift5)
+        mImage.add(R.drawable.nizar)
         mNames.add("Picture 5")
 
         initRecyclerView()

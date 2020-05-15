@@ -14,20 +14,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_music"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="?attr/actionBarSize"/>
-
-        <Button
-            android:id="@+id/btn_music"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_button_started"
-            android:textColor="@color/putih"
-            android:text="Music"
-            android:textAllCaps="true"/>
+            android:layout_height="match_parent" />
 
     </RelativeLayout>
 

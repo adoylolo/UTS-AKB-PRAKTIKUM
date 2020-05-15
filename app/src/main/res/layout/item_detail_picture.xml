@@ -22,7 +22,7 @@
         android:layout_below="@+id/picture"
         android:background="@color/bg"
         android:textAlignment="center"
-        android:text="Nama Gallery"
+        android:text="@string/nama_picture"
         android:textColor="@color/putih"
         android:textSize="20sp" />
 
